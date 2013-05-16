@@ -1,0 +1,111 @@
+html{
+    overflow-y: scroll;
+}
+body{
+    min-height: 100%;
+}
+
+#wrapper{
+    margin: 20px auto;
+    width: 800px;
+}
+.hide{
+    display:none;
+}
+
+#name_span{
+    font-weight: bold;
+}
+#main_greeting{
+    margin-bottom: 10px;
+}
+textarea{
+    border:1px solid #ccc;
+    width:800px;
+    height:100px;
+    resize:none;
+    padding:2px;
+    margin-bottom:10px;
+}
+.link{
+    width: 400px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    padding:2px;
+}
+#link_container .link{
+    display: block;
+}
+.photo{
+    margin-bottom:10px;
+}
+#photo_container .photo{
+    display: block;
+}
+#more_link{
+    cursor:pointer;
+    border:1px solid #ccc;
+    padding:0 7px 1px;
+}
+#more_link:hover{
+    background-color: #ccc;
+}
+#more_photo{
+    cursor:pointer;
+    border:1px solid #ccc;
+    padding:0 7px 1px;
+}
+#more_photo:hover{
+    background-color: #ccc;
+}
+#messages{
+    margin-top: 20px;
+}
+.message{
+    border:1px solid #ccc;
+    padding:10px;
+    margin-top:10px;
+}
+.message_time{
+    color:#AAA;
+}
+.message_name{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.message_text{
+    margin:10px 0;
+}
+.header{
+    position: relative;
+}
+.message_like_count{
+    left: 400px;
+    position: absolute;
+}
+.button{
+    float:right;
+    cursor:pointer;
+    border:1px solid #ccc;
+    padding: 1px 7px 4px;
+    margin-left: 5px;
+
+}
+.button:hover{
+    background-color: #ccc;
+}
+
+.message_like_done{
+    border:1px solid #fff;
+    margin-left: 5px;
+    padding: 1px 7px 4px;
+    float:right;
+    
+}
+.attach{
+    margin: 5px 0;
+}
+.attach img{
+    max-width: 780px;
+}

@@ -1,0 +1,57 @@
+<form id="main_form" action="/message/add" method="post" enctype="multipart/form-data" <? if ( ! Registry::exists('user')):?> class="hide"<? endif;?>>
+    <div id="main_greeting"<? if ( ! Registry::exists('user')):?> class="hide"<? endif;?>>
+        Вы вошли как <span id="name_span"><?=Registry::get('user')->name;?></span>.
+    </div> 
+    <textarea id="text" type="text" name="text" placeholder="введите текст сообщения"></textarea>
+    <input class="link" type="text" name="link[]" placeholder="адрес сайта(для роликов - youtube.com)"/>
+    <span id="more_link">еще</span>
+    <div id="link_container"></div>
+    <input class="photo" type="file" name="photo[]">
+    <span id="more_photo">еще</span>
+    <div id="photo_container"></div>
+    <br>
+    <input type="submit" value="Отправить сообщение">
+</form>
+
+<? if ( ! Registry::exists('user')):?>
+    <form id="name_form">
+        <div>Чтобы оставить сообщение, введите свое имя:</div>
+        <input type="text" id="name" name="name"/>
+        <input type="submit" value="Представиться"/>
+    </form>
+<? endif;?>
+
+<div id="messages"></div>
+
+<script id="message_template" type="template">
+    <div id="message_{{id}}" data-id="{{id}}" class="message">
+        <div class="header">
+            <span class="message_time">{{time}}</span>
+            <span class="message_name">{{name}}</span>
+            <span class="message_like_count">
+                Лайков: <span class="message_like_num">{{like}}</span>
+            </span>
+            {{delete_span}}
+        </div>
+        <div class="message_text">{{text}}</div>
+        {{attaches}}
+    </div>
+</script>
+
+<script id="attach_template_link" type="template">
+    <div id="attach_{{id}}" data-id="{{id}}" class="attach">
+        <a href="{{link}}" target="_blanc">{{link}}</a>
+    </div>
+</script>
+
+<script id="attach_template_video" type="template">
+    <div id="attach_{{id}}" data-id="{{id}}" class="attach">
+        <object style="height: 390px; width: 640px"><param name="movie" value="http://www.youtube.com/v/{{link}}?version=3&feature=player_detailpage"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/{{link}}?version=3&feature=player_detailpage" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></object>
+    </div>
+</script>
+
+<script id="attach_template_photo" type="template">
+    <div id="attach_{{id}}" data-id="{{id}}" class="attach">
+        <img src="/upload/{{link}}"/>
+    </div>
+</script>
